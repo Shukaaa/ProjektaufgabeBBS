@@ -12,25 +12,25 @@ function compHeader($selected) { ?>
     </div>
     <ul>
         <li>
-            <a href="./index.php" <?php if ($selected == "Home") {echo selected(); } ?>>Home</a>
+            <a href="./index.php?data=Home" <?php if ($selected == "Home") {echo selected(); } ?>>Home</a>
         </li>
         <li>
-            <a href="./buecher.php" <?php if ($selected == "Buecher") {echo selected(); } ?>>Buecher</a>
+            <a href="./index.php?data=Buecher" <?php if ($selected == "Buecher") {echo selected(); } ?>>Buecher</a>
         </li>
         <li>
-            <a href="./autoren.php" <?php if ($selected == "Autoren") {echo selected(); } ?>>Autoren</a>
+            <a href="./index.php?data=Autoren" <?php if ($selected == "Autoren") {echo selected(); } ?>>Autoren</a>
         </li>
         <li>
-            <a href="./verlage.php" <?php if ($selected == "Verlage") {echo selected(); } ?>>Verlage</a>
+            <a href="./index.php?data=Verlage" <?php if ($selected == "Verlage") {echo selected(); } ?>>Verlage</a>
         </li>
         <li>
-            <a href="./sparten.php" <?php if ($selected == "Sparten") {echo selected(); } ?>>Sparten</a>
+            <a href="./index.php?data=Sparten" <?php if ($selected == "Sparten") {echo selected(); } ?>>Sparten</a>
         </li>
         <li>
-            <a href="./lieferanten.php" <?php if ($selected == "Lieferanten") {echo selected(); } ?>>Lieferanten</a>
+            <a href="./index.php?data=Lieferanten" <?php if ($selected == "Lieferanten") {echo selected(); } ?>>Lieferanten</a>
         </li>
         <li>
-            <a href="./orte.php" <?php if ($selected == "Orte") {echo selected(); } ?>>Orte</a>
+            <a href="./index.php?data=Orte" <?php if ($selected == "Orte") {echo selected(); } ?>>Orte</a>
         </li>
     </ul>
 </header>
