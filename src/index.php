@@ -13,7 +13,8 @@ $keys = null;
 if (isset($_GET["data"])) {
     $table = $_GET["data"];
     if ($table != "Home") {
-        getData(strtolower($table));
+        $data = getData(strtolower($table));
+        $keys = getKeys($data);
     } else {
         $data = null;
         $keys = null;
@@ -26,9 +27,12 @@ function getData($table) {
     global $keys;
 
     // GET Autoren
-    $data = $service->get($table);
+    return $service->get($table);
+}
+
+function getKeys($data) {
     // Keys raus schnappen (Tabellenkopf)
-    $keys = array_keys($data[0]);
+    return array_keys($data[0]);
 }
 
 ?>
@@ -47,13 +51,44 @@ function getData($table) {
         <table>
             <tr>
                 <?php foreach ($keys as $key) {
-                    echo "<th>$key</th>";
+                    ;
+                    if ($key == "verlage_verlage_id") {
+                        echo "<th>Verlag</th>";
+                    } elseif ($key == "orte_orte_id") {
+                        echo "<th>Ort</th>";
+                    } else {
+                        echo "<th>" . ucfirst($key) . "</th>";
+                    }
                 } ?>
             </tr>
             <?php foreach ($data as $d) {
                 echo "<tr>";
                 foreach ($keys as $key) {
-                    echo "<td>$d[$key]</td>";
+                    if ($key == "verlage_verlage_id") {
+                        $verlage = getData("verlage");
+                        $verlage_filtered = array_filter($verlage, function ($val) {
+                            global $d;
+                            global $key;
+
+                        return $val["verlage_id"] == $d[$key];
+                        });
+                        $name = reset($verlage_filtered)["name"];
+
+                        echo "<td>$name</td>";
+                    } elseif ($key == "orte_orte_id") {
+                        $orte = getData("orte");
+                        $orte_fitlered = array_filter($orte, function ($val) {
+                            global $d;
+                            global $key;
+
+                        return $val["orte_id"] == $d[$key];
+                        });
+                        $name = reset($orte_fitlered)["name"];
+
+                        echo "<td>$name</td>";
+                    } else {
+                        echo "<td>$d[$key]</td>";
+                    }
                 }
                 echo "</tr>";
             } ?>
