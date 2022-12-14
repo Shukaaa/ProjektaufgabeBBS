@@ -19,7 +19,8 @@ ul {
     padding: 0;
 }
 
-ul > li {
+ul > li, .statement-form > label {
+    padding-top: 0.33em;
     display: inline-block;
 }
 
@@ -52,4 +53,28 @@ a:hover {
 
 .selected {
     color: var(--theme-color) !important;
+}
+
+.statement-form > button {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid #fff;
+    border-radius: 0.25em;
+    margin-left: 0.25em;
+    padding: 0.25em 0.75em;
+}
+
+.statement-form > button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.statement-form > button:active {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.statement-form > input {
+    color: #333;
+}
+
+.statement-form > label {
+    margin-right: 0.5em;
 }

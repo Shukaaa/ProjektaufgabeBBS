@@ -3,7 +3,7 @@
 @import url("./header.css");
 @import url("./table.css");
 
-* {
+:root {
     --theme-color: #05927d;
 }
 
@@ -13,4 +13,8 @@ h1, h2, h3, h4, h5, h6, ul, li {
 
 section {
     text-align: center;
+}
+
+.error {
+    color: rgb(190, 33, 33);
 }

@@ -2,6 +2,7 @@
 require_once("./components/head.php");
 require_once("./components/header.php");
 
+require("./utils/UtilClass.php");
 require("./utils/BuchladenService.php");
 $service = new BuchladenService();
 
@@ -18,6 +19,16 @@ if (isset($_GET["data"])) {
     } else {
         $data = null;
         $keys = null;
+    }
+}
+
+if (isset($_POST["statement"])) {
+    $statement = $_POST["statement"];
+    $data = $service->getCustomStatement($statement);
+    if ($data == "Invalid Statement") {
+        $_POST["error"] = "Invalid Statement";
+    } else {
+        $keys = getKeys($data);
     }
 }
 
@@ -39,7 +50,12 @@ function getKeys($data) {
 <?php compHead($table) ?>
 <body>
     <?php compHeader($table) ?>
-    <?php if($table == "Home") { ?>
+    <?php if(isset($_POST["error"])) { ?>
+    <section class="error">
+        <h2>Error<br><?php echo $_POST["error"] ?></h2>
+    </section>
+    <?php } ?>
+    <?php if($table == "Home" && !isset($_POST["error"]) && $data == null && $keys == null) { ?>
     <section>
         <h2>Wähle oben in der Navigationsbar eine Tabelle aus<br>oder wähle ein eigenes SELECT-Statement</h2>
     </section>

@@ -24,6 +24,23 @@ class BuchladenService {
 
         return $data;
     }
+
+    public function getCustomStatement($SQL) {
+        if (str_contains(strtolower($SQL), "select") && str_contains(strtolower($SQL), "from")) {
+            try {
+                // Ergebnisse werden im data Array abgelegt
+                $result = $this->conn->query($SQL);
+                while($row = $result->fetch_assoc()){
+                    $data[] = $row;
+                }
+
+                return $data;
+            } catch (mysqli_sql_exception) {
+                return "Invalid Statement";
+            }
+        }
+        return "Invalid Statement";
+    }
 }
 
 ?>
