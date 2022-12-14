@@ -24,7 +24,7 @@ if (isset($_GET["data"])) {
 function getData($table) {
     global $service;
 
-    // GET Autoren
+    // GET
     return $service->get($table);
 }
 
@@ -41,7 +41,7 @@ function getKeys($data) {
     <?php compHeader($table) ?>
     <?php if($table == "Home") { ?>
     <section>
-        <h2>Wähle oben in der Navigationsbar eine Tabelle aus.</h2>
+        <h2>Wähle oben in der Navigationsbar eine Tabelle aus<br>oder wähle ein eigenes SELECT-Statement</h2>
     </section>
     <?php } ?>
     <?php if($data != null && $keys != null) { ?>
@@ -49,7 +49,6 @@ function getKeys($data) {
         <table>
             <tr>
                 <?php foreach ($keys as $key) {
-                    ;
                     if ($key == "verlage_verlage_id") {
                         echo "<th>Verlag</th>";
                     } elseif ($key == "orte_orte_id") {

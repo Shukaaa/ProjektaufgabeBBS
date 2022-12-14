@@ -12,9 +12,6 @@ function compHeader($selected) { ?>
     </div>
     <ul>
         <li>
-            <a href="./index.php?data=Home" <?php if ($selected == "Home") {echo selected(); } ?>>Home</a>
-        </li>
-        <li>
             <a href="./index.php?data=Buecher" <?php if ($selected == "Buecher") {echo selected(); } ?>>Buecher</a>
         </li>
         <li>
