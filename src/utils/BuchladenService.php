@@ -12,6 +12,7 @@ class BuchladenService {
         $this->conn = $mysqli->getConnection();
         $this->database = $mysqli->getDatabase();
     }
+    
     public function get($table) {
         // SQL-Statement für query
         $SQL = "SELECT * FROM $this->database.$table";
