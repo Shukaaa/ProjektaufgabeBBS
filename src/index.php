@@ -23,8 +23,6 @@ if (isset($_GET["data"])) {
 
 function getData($table) {
     global $service;
-    global $data;
-    global $keys;
 
     // GET Autoren
     return $service->get($table);

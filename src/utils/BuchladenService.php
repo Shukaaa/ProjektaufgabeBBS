@@ -3,17 +3,21 @@ require_once("./db/mysqli_connection.php");
 
 // Service für jegliche Methoden (GET, POST, DELETE, PATCH)
 class BuchladenService {
-    public function get($table) {
+    private $conn;
+    private $database;
+
+    function __construct() {
         // Erstellt Datenbankverbindung
         $mysqli = new MysqliConnection();
-        $conn = $mysqli->getConnection();
-        $database = $mysqli->getDatabase();
-
+        $this->conn = $mysqli->getConnection();
+        $this->database = $mysqli->getDatabase();
+    }
+    public function get($table) {
         // SQL-Statement für query
-        $SQL = "SELECT * FROM $database.$table";
+        $SQL = "SELECT * FROM $this->database.$table";
 
         // Ergebnisse werden im data Array abgelegt
-        $result = $conn->query($SQL);
+        $result = $this->conn->query($SQL);
         while($row = $result->fetch_assoc()){
             $data[] = $row;
         }
