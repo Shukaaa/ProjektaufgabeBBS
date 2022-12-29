@@ -15,6 +15,30 @@ section {
     text-align: center;
 }
 
+footer {
+    position: fixed;
+    left: 15px;
+    bottom: 0;
+    width: 100%;
+}
+
+.delete:hover {
+    color: rgb(190, 33, 33);
+}
+
+.delete, .reset {
+    background: transparent;
+    border: none;
+}
+
+.reset {
+    margin-bottom: 2em;
+}
+
+.reset:hover {
+    color: var(--theme-color);
+}
+
 .error {
     color: rgb(190, 33, 33);
 }

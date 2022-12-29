@@ -8,6 +8,8 @@ function compHead($title) { ?>
     <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
     <link rel="stylesheet" href="./css/main.css">
 
+    <script src="https://kit.fontawesome.com/5bf597b54b.js" crossorigin="anonymous"></script>
+
     <title>Buchlager | <?php echo $title ?></title>
 </head>
 <?php
