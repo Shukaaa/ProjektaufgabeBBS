@@ -3,7 +3,6 @@ require_once("./components/head.php");
 require_once("./components/header.php");
 require_once("./components/footer.php");
 
-require("./utils/UtilClass.php");
 require("./utils/BuchladenService.php");
 $service = new BuchladenService();
 
@@ -76,6 +75,7 @@ function getKeys($data) {
             <button class="reset" type="submit" name="Reset" value="true">
                 Reset Database
             </button>
+            <a style="color: #000;" href="add.php?data=<?php echo $table ?>">Eintrag Hinzufügen</a>
         </form>
         <table>
             <tr>
@@ -88,6 +88,7 @@ function getKeys($data) {
                         echo "<th>" . ucfirst($key) . "</th>";
                     }
                 } ?>
+                <th></th>
             </tr>
             <?php foreach ($data as $d) {
                 echo "<tr>";

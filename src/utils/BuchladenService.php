@@ -26,6 +26,28 @@ class BuchladenService {
         return $data;
     }
 
+    public function add($table, $names, $values) {
+        $name_string = "";
+        $value_string = "";
+
+        foreach ($names as $name) {
+            $name_string .= $name;
+            $name_string .= ", ";
+        }
+
+        foreach ($values as $value) {
+            $value_string .= $value;
+            $value_string .= ", ";
+        }
+
+        $name_string = substr($name_string, 0, -2);
+        $value_string = substr($value_string, 0, -2);
+        
+        $SQL = "INSERT INTO buchladen.$table ($name_string) VALUES ($value_string);";
+
+        $this->conn->query($SQL);
+    }
+
     public function delete($table, $key, $value) {
         // SQL-Statement für query
         $SQL = "DELETE FROM $this->database.$table WHERE $key=$value";

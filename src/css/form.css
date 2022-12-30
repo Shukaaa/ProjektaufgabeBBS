@@ -1,0 +1,31 @@
+.form {
+    min-width: 1000px;
+    margin: auto;
+    width: 50%;
+}
+
+.full-form {
+    width: 300px;
+    padding-bottom: 0.5em;
+}
+
+.form-field, .half-form:nth-child(even) > .form-field {
+    width: 100%;
+}
+
+.half-form > .form-field {
+    width: 90%;
+}
+
+.half-form:nth-child(even) > select {
+    width: 105%;
+}
+
+.form-field {
+    box-sizing: border-box;
+    height: 30px;
+}
+
+.flex {
+    display: flex;
+}

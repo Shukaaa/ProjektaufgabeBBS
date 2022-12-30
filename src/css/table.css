@@ -12,6 +12,13 @@ td, th {
     padding: 0.5em 2em;
 }
 
+th {
+    background-color: white;
+    border-bottom: 1px solid rgb(234, 234, 234);
+    top: 0;
+    position: sticky;
+}
+
 tr:nth-child(even) {
     background-color: #eee;
 }

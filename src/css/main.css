@@ -2,6 +2,7 @@
 
 @import url("./header.css");
 @import url("./table.css");
+@import url("./form.css");
 
 :root {
     --theme-color: #05927d;
@@ -36,7 +37,7 @@ footer {
 }
 
 .reset:hover {
-    color: var(--theme-color);
+    text-decoration: underline;
 }
 
 .error {
