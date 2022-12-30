@@ -89,6 +89,7 @@ function getKeys($data) {
                     }
                 } ?>
                 <th></th>
+                <th></th>
             </tr>
             <?php foreach ($data as $d) {
                 echo "<tr>";
@@ -128,6 +129,11 @@ function getKeys($data) {
                             <i class='fa-solid fa-trash'></i>
                         </button>
                     </form>
+                </td>
+                <td>
+                    <a style="color: #000;" class="pen" href="edit.php?data=<?php echo $table ?>&id=<?php echo $d[array_key_first($d)] ?>">
+                        <i class='fa-solid fa-pen'></i>
+                    </a>
                 </td>
 
             <?php 

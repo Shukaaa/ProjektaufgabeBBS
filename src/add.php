@@ -6,6 +6,12 @@ require_once("./components/footer.php");
 require("./utils/BuchladenService.php");
 $service = new BuchladenService();
 
+function backToPage() {
+    global $table;
+
+    echo "<script>window.location.replace('index.php?data=" . $table . "')</script>";
+}
+
 $table = $_GET["data"];
 ?>
 <!DOCTYPE html>
@@ -167,6 +173,8 @@ if (isset($_POST["buecher"])) {
         "buecher", 
         array("titel", "verkaufspreis", "einkaufspreis", "erscheinungsjahr", "verlage_verlage_id"),
         array($b_titel, $b_verkaufspreis, $b_einkaufspreis, $b_erscheinungsjahr, $b_verlag));
+
+    backToPage();
 }
 
 if (isset($_POST["autoren"])) {
@@ -178,6 +186,8 @@ if (isset($_POST["autoren"])) {
         "autoren", 
         array("vorname", "nachname", "geburtsdatum"),
         array($a_vorname, $a_nachname, $a_geburtsdatum));
+        
+    backToPage();
 }
 
 if (isset($_POST["verlage"])) {
@@ -188,6 +198,8 @@ if (isset($_POST["verlage"])) {
         "verlage", 
         array("name", "orte_orte_id"),
         array($v_name, $v_ort));
+        
+    backToPage();
 }
 
 if (isset($_POST["sparten"])) {
@@ -197,6 +209,8 @@ if (isset($_POST["sparten"])) {
         "sparten", 
         array("bezeichnung"),
         array($s_bezeichnung));
+        
+    backToPage();
 }
 
 if (isset($_POST["lieferanten"])) {
@@ -207,6 +221,8 @@ if (isset($_POST["lieferanten"])) {
         "lieferanten", 
         array("name", "orte_orte_id"),
         array($l_name, $l_ort));
+        
+    backToPage();
 }
 
 if (isset($_POST["orte"])) {
@@ -217,5 +233,7 @@ if (isset($_POST["orte"])) {
         "orte", 
         array("name", "postleitzahl"),
         array($o_name, $o_postleitzahl));
+        
+    backToPage();
 }
 ?>

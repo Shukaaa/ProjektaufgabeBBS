@@ -43,3 +43,7 @@ footer {
 .error {
     color: rgb(190, 33, 33);
 }
+
+.pen {
+ cursor: pointer;
+}

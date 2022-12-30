@@ -43,7 +43,7 @@ class BuchladenService {
         $name_string = substr($name_string, 0, -2);
         $value_string = substr($value_string, 0, -2);
         
-        $SQL = "INSERT INTO buchladen.$table ($name_string) VALUES ($value_string);";
+        $SQL = "INSERT INTO $this->database.$table ($name_string) VALUES ($value_string);";
 
         $this->conn->query($SQL);
     }
@@ -51,6 +51,13 @@ class BuchladenService {
     public function delete($table, $key, $value) {
         // SQL-Statement für query
         $SQL = "DELETE FROM $this->database.$table WHERE $key=$value";
+
+        $this->conn->query($SQL);
+    }
+
+    public function update($table, $key, $value, $id_key, $id) {
+        // SQL-Statement für query
+        $SQL = "UPDATE $this->database.$table SET $key=$value WHERE $id_key=$id";
 
         $this->conn->query($SQL);
     }
